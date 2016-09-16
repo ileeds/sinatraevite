@@ -1,0 +1,10 @@
+<h3>These are all the events!</h3>
+<ol>
+  <% i = 0 %>
+<% @events.each do |eve| %>
+	<li>
+		<strong><%= eve.name %></strong>
+	</li>
+<% end %>
+</ol>
+<a href="/">Go back to the home page!</a>
