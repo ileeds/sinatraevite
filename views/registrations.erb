@@ -2,8 +2,8 @@
 <ol>
   <% i = 0 %>
 <% @registrations.each do |reg| %>
-	<li>
-		<strong><%= reg.event_id %></strong>
+  <li>
+		<strong><%= "Person: #{Person.find_by(id: reg.person_id).name}.   Event: #{Event.find_by(id: reg.event_id).name}.   Status: #{reg.status}." %></strong>
 	</li>
 <% end %>
 </ol>

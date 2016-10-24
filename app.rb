@@ -25,7 +25,24 @@ get '/registrations' do
 	erb :registrations
 end
 
-post '/person/new' do
+get '/person/new' do
+	erb :new_people
+end
+
+get '/event/new' do
+	erb :new_events
+end
+
+get '/registration/new' do
+	erb :new_registrations
+end
+
+get '/error' do
+	@error
+	erb :error
+end
+
+post '/person/submit' do
 	@person = Person.new(params[:person])
 	if @person.save
 		redirect '/persons'
@@ -34,7 +51,7 @@ post '/person/new' do
 	end
 end
 
-post '/event/new' do
+post '/event/submit' do
 	@event = Event.new(params[:event])
 	if @event.save
 		redirect '/events'
@@ -43,7 +60,19 @@ post '/event/new' do
 	end
 end
 
-post '/registration/new' do
+post '/registration/submit' do
+	p_id=params[:registration][:person_id]
+	person=Person.find_by(name: p_id)
+	if person.nil?
+		redirect '/error'
+	end
+	e_id=params[:registration][:event_id]
+	event=Event.find_by(name: e_id)
+	if event.nil?
+		redirect '/error'
+	end
+	params[:registration][:person_id]=person.id
+	params[:registration][:event_id]=event.id
 	@registration = Registration.new(params[:registration])
 	if @registration.save
 		redirect '/registrations'

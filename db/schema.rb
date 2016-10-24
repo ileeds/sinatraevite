@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20160915235925) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.string "person_id"
-    t.string "event_id"
-    t.string "status"
+    t.integer "person_id"
+    t.integer "event_id"
+    t.string  "status"
   end
 
 end

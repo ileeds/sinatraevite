@@ -1,21 +1,4 @@
 <h3>Welcome to Ian's Evite Page!</h3>
-<form action="/person/new" method="POST">
-	<input type="text" name="person[name]" value="Enter Person Name" />
-  <input type="date" name="person[date_of_birth]" value="Enter Date of Birth" />
-	<input type="text" name="person[gender]" value="Enter Gender" />
-	<input type="text" name="person[zip_code]" value="Enter Zip Code" />
-	<input type="submit" value="Submit" />
-</form>
-<form action="/event/new" method="POST">
-	<input type="text" name="event[name]" value="Enter Event Name" />
-  <input type="date" name="event[date]" value="Enter Date of Event" />
-	<input type="submit" value="Submit" />
-</form>
-<form action="/registration/new" method="POST">
-	<input type="text" name="registration[person_id]" value="Enter Person ID" />
-  <input type="text" name="registration[event_id]" value="Enter Event ID" />
-	<input type="checkbox" name="registration[status]" value="Coming">Coming
-	<input type="checkbox" name="registration[status]" value="Not Coming">Not Coming
-	<input type="checkbox" name="registration[status]" value="Maybe">Maybe
-	<input type="submit" value="Submit" />
-</form>
+<a href="/person/new">Add a person!</a>
+<a href="/event/new">Add an event!</a>
+<a href="/registration/new">Register someone for an event!</a>
